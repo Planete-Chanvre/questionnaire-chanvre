@@ -66,6 +66,9 @@ textarea{resize:vertical}
   padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;
   text-decoration:none;transition:background .15s}
 .footer a.site-link:hover{background:rgba(255,255,255,0.25)}
+.footer-links{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px}
+.footer a.icon-link{display:inline-flex;align-items:center;gap:6px}
+.footer a.icon-link svg{flex-shrink:0}
 .banner{display:none;border:1px solid #c8dfc4;border-top:none;height:240px;background:#dfe9dc center/cover no-repeat}
 .banner.show{display:block}
 .pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:4px}
@@ -136,6 +139,15 @@ textarea{resize:vertical}
   transition:opacity .2s,transform .2s,visibility .2s,background .15s}
 .top-btn.show{opacity:1;visibility:visible;transform:none}
 .top-btn:hover{background:var(--g2)}
+.need{border-top:2px dashed color-mix(in srgb,var(--gc,var(--g)) 35%,#fff)}
+.need:first-child{border-top:none}
+.need-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 18px;background:color-mix(in srgb,var(--gc,var(--g)) 9%,#fff);color:var(--gc,var(--g));font-size:13px;font-weight:700}
+.need-rm{background:#fff;border:1px solid #d9b3b3;color:#a33;border-radius:14px;padding:3px 12px;font-size:11px;font-weight:600;cursor:pointer}
+.need-rm:hover{background:#fff0f0}
+.need-add-wrap{padding:10px 18px 14px}
+.need-add{width:100%;background:#fff;border:1.5px dashed var(--gc,var(--g));color:var(--gc,var(--g));border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer}
+.need-add:hover{background:color-mix(in srgb,var(--gc,var(--g)) 7%,#fff)}
+.need-max{font-size:11px;color:#999;font-style:italic;text-align:center}
 @media(max-width:600px){
   .header{padding:14px;gap:14px}.header img.logo{height:55px}.banner{height:120px}.pcards{grid-template-columns:repeat(2,1fr)}.len3{grid-template-columns:1fr}.checks.grouped{grid-template-columns:1fr}.imgguide figure{width:calc(33% - 6px)}
   .lang-btn{position:static;margin-top:8px}.wrap{padding:0 8px 28px}
@@ -182,17 +194,21 @@ textarea{resize:vertical}
 <div class="footer">
   <span id="ui-footer-ret"></span><br>
   <em>Planète Chanvre — Aulnoy, France</em><br>
-  <a href="https://www.planetechanvre.com" target="_blank" class="site-link">Visiter notre site</a>
+  <div class="footer-links">
+    <a href="https://www.planetechanvre.com" target="_blank" rel="noopener" class="site-link" id="ui-site">Visiter notre site</a>
+    <a href="https://www.linkedin.com/company/plan%C3%A8te-chanvre" target="_blank" rel="noopener" class="site-link icon-link" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Plan%C3%A8te%20Chanvre%2C%20Rue%20de%20Bellevue%2C%2077120%20Aulnoy" target="_blank" rel="noopener" class="site-link icon-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg><span id="ui-findus">Où nous sommes</span></a>
+  </div>
 </div>
 </div>
 <script>
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzaKqptiiSmBPG_hekooso41JK4r-bkwuLZFgiFhr0vrqpzzhq9ZEXfC6ID_ZUQujzkbQ/exec";
-const FR_UI     = {"lang_btn": "🇬🇧 English", "title": "Qualification de votre besoin", "subtitle": "Fibre chanvre · Chènevotte · Chènevis &nbsp;|&nbsp; B2B Industriel &nbsp;|&nbsp; Document confidentiel", "intro": "Ce questionnaire nous permet de qualifier précisément vos besoins. Toutes les informations sont strictement confidentielles. Les champs marqués <strong>*</strong> sont obligatoires.", "send_btn": "Envoyer le questionnaire", "sending": "Envoi en cours…", "success": "✅ Questionnaire envoyé avec succès ! Nous vous recontacterons dans les meilleurs délais.", "error": "❌ Une erreur est survenue. Veuillez réessayer ou contacter dir-commercial@planetechanvre.com", "placeholder": "— Sélectionner —", "sec_a1": "A1 — Coordonnées", "sec_a2": "A2 — Contexte d'achat", "sec_b1": "B1 — Fibre technique de chanvre", "sec_b1_note": "Remplir uniquement si vous êtes intéressé par la fibre", "sec_b2": "B2 — Chènevotte", "sec_b2_note": "Remplir uniquement si vous êtes intéressé par la chènevotte", "sec_b3": "B3 — Chènevis (graines)", "sec_b3_note": "Remplir uniquement si vous êtes intéressé par le chènevis", "sec_c": "C — Suivi et prochain contact", "tagline": "Chanvre industriel 100% français &nbsp;·&nbsp; Non irrigué &nbsp;·&nbsp; Taux de THC &lt; 0,3%", "company_ln": "Planète Chanvre — Île-de-France, France", "sec_b4": "B4 — Fines de chanvre (co-produit)", "sec_b4_note": "Remplir uniquement si vous êtes intéressé par les fines de chanvre", "colour_hint": "Cliquez sur une photo pour sélectionner", "products_error": "Veuillez cocher au moins une famille de produits", "sub_hint": "précisez le(s) type(s) :", "sub_error": "Veuillez sélectionner au moins un type", "other_label": "Précisez", "other_ph": "Précisez votre réponse", "len_min": "Minimum (cm)", "len_max": "Maximum (cm)", "len_avg": "Moyenne souhaitée (cm)", "len_error": "Le minimum doit être inférieur ou égal au maximum, et la moyenne comprise entre les deux", "len_min_gt": "Supérieur au maximum ({v} cm)", "len_max_lt": "Inférieur au minimum ({v} cm)", "len_avg_gt": "Supérieure au maximum ({v} cm)", "len_avg_lt": "Inférieure au minimum ({v} cm)", "group_error": "Veuillez choisir une réponse", "grp_ch_use": ["Construction", "Litière animale", "Espaces verts"]};
-const EN_UI     = {"lang_btn": "🇫🇷 Français", "title": "Qualification of your requirements", "subtitle": "Hemp fibre · Hemp shives · Hemp seeds &nbsp;|&nbsp; Industrial B2B &nbsp;|&nbsp; Confidential", "intro": "This questionnaire helps us accurately qualify your requirements. All information is strictly confidential. Fields marked <strong>*</strong> are required.", "send_btn": "Submit questionnaire", "sending": "Sending…", "success": "✅ Questionnaire submitted successfully! We will contact you as soon as possible.", "error": "❌ An error occurred. Please try again or contact dir-commercial@planetechanvre.com", "placeholder": "— Select —", "sec_a1": "A1 — Contact details", "sec_a2": "A2 — Purchase context", "sec_b1": "B1 — Technical hemp fibre", "sec_b1_note": "Complete only if you are interested in fibre", "sec_b2": "B2 — Hemp shives (Chènevotte)", "sec_b2_note": "Complete only if you are interested in hemp shives", "sec_b3": "B3 — Hemp seeds (Chènevis)", "sec_b3_note": "Complete only if you are interested in hemp seeds", "sec_c": "C — Follow-up and next contact", "tagline": "100% French industrial hemp &nbsp;·&nbsp; Rain-fed &nbsp;·&nbsp; THC content &lt; 0.3%", "company_ln": "Planète Chanvre — Île-de-France, France", "sec_b4": "B4 — Hemp fines (co-product)", "sec_b4_note": "Fill in only if you are interested in hemp fines", "colour_hint": "Click a photo to select", "products_error": "Please tick at least one product family", "sub_hint": "specify the type(s):", "sub_error": "Please select at least one type", "other_label": "Please specify", "other_ph": "Please specify your answer", "len_min": "Minimum (cm)", "len_max": "Maximum (cm)", "len_avg": "Desired average (cm)", "len_error": "The minimum must not exceed the maximum, and the average must lie between them", "len_min_gt": "Greater than the maximum ({v} cm)", "len_max_lt": "Less than the minimum ({v} cm)", "len_avg_gt": "Greater than the maximum ({v} cm)", "len_avg_lt": "Less than the minimum ({v} cm)", "group_error": "Please choose an answer", "grp_ch_use": ["Construction", "Animal bedding", "Green spaces"]};
-const FR_FIELDS = {"company": {"label": "Nom de l'entreprise", "req": true, "note": ""}, "contact": {"label": "Votre prénom et nom", "req": true, "note": ""}, "role": {"label": "Fonction / Poste", "req": false, "note": ""}, "email": {"label": "Email", "req": true, "note": ""}, "phone": {"label": "Téléphone", "req": false, "note": ""}, "address": {"label": "Adresse / Pays", "req": false, "note": ""}, "website": {"label": "Site web", "req": false, "note": ""}, "req_date": {"label": "Date de la demande", "req": false, "note": ""}, "activity": {"label": "Secteur d'activité principal", "req": true, "note": ""}, "how_know": {"label": "Comment avez-vous connu Planète Chanvre ?", "req": false, "note": ""}, "current_supplier": {"label": "Fournisseur actuel (si applicable)", "req": false, "note": ""}, "why_contact": {"label": "Raison principale du contact", "req": true, "note": ""}, "products": {"label": "Produit(s) d'intérêt", "req": true, "note": "Cochez une ou plusieurs familles — les questions détaillées s'affichent selon vos choix"}, "f_type": {"label": "Type de fibre souhaité", "req": false, "note": ""}, "f_use": {"label": "Usage final de la fibre", "req": false, "note": ""}, "f_length": {"label": "Longueur souhaitée (en cm)", "req": false, "note": "Indiquez une longueur minimum, maximum et moyenne, en centimètres"}, "f_shives": {"label": "Taux de chènevotte accepté (%)", "req": false, "note": ""}, "f_colour": {"label": "Couleur / indice de rouissage", "req": false, "note": ""}, "f_colour_mix": {"label": "Mélange de couleurs dans le ballot accepté ?", "req": false, "note": ""}, "f_dust": {"label": "Contrainte taux de poussières", "req": false, "note": ""}, "f_humidity": {"label": "Taux d'humidité max acceptable (%)", "req": false, "note": "Standard : ≤ 13%"}, "f_volume": {"label": "Volume annuel estimé (tonnes)", "req": false, "note": ""}, "f_frequency": {"label": "Fréquence de commande souhaitée", "req": false, "note": ""}, "f_spec": {"label": "Autres spécifications techniques", "req": false, "note": "Longueur exacte, tolérance, résistance, stockage..."}, "ch_use": {"label": "Usage final de la chènevotte", "req": false, "note": ""}, "ch_grade": {"label": "Conditionnement souhaité", "req": false, "note": ""}, "ch_certif": {"label": "Labels / certifications requis", "req": false, "note": ""}, "ch_volume": {"label": "Volume annuel estimé (tonnes)", "req": false, "note": ""}, "ch_spec": {"label": "Autres spécifications", "req": false, "note": "Humidité, taille particule, etc."}, "cv_use": {"label": "Usage du chènevis", "req": false, "note": ""}, "cv_bio": {"label": "Qualité BIO requise ?", "req": false, "note": ""}, "cv_volume": {"label": "Volume annuel estimé (tonnes)", "req": false, "note": ""}, "followup_delay": {"label": "Délai de recontact souhaité", "req": false, "note": ""}, "followup_mode": {"label": "Mode de contact préféré", "req": false, "note": ""}, "decision": {"label": "Horizon de décision d'achat", "req": false, "note": ""}, "comments": {"label": "Commentaires libres", "req": false, "note": "Tout élément utile non couvert par ce questionnaire"}, "civilite": {"label": "Civilité", "req": false, "note": ""}, "pd_use": {"label": "Usage des fines de chanvre", "req": false, "note": ""}, "pd_volume": {"label": "Volume annuel estimé (tonnes)", "req": false, "note": ""}, "pd_spec": {"label": "Autres spécifications", "req": false, "note": "Granulométrie, humidité, conditionnement..."}, "ch_scent": {"label": "Parfum de la litière", "req": false, "note": ""}};
-const EN_FIELDS = {"company": {"label": "Company name", "req": true, "note": ""}, "contact": {"label": "Your first and last name", "req": true, "note": ""}, "role": {"label": "Job title", "req": false, "note": ""}, "email": {"label": "Email", "req": true, "note": ""}, "phone": {"label": "Phone", "req": false, "note": ""}, "address": {"label": "Address / Country", "req": false, "note": ""}, "website": {"label": "Website", "req": false, "note": ""}, "req_date": {"label": "Date of request", "req": false, "note": ""}, "activity": {"label": "Main industry sector", "req": true, "note": ""}, "how_know": {"label": "How did you hear about Planète Chanvre?", "req": false, "note": ""}, "current_supplier": {"label": "Current supplier (if applicable)", "req": false, "note": ""}, "why_contact": {"label": "Main reason for contact", "req": true, "note": ""}, "products": {"label": "Product(s) of interest", "req": true, "note": "Tick one or more product families — detailed questions appear based on your choice"}, "f_type": {"label": "Required fibre type", "req": false, "note": ""}, "f_use": {"label": "End use of fibre", "req": false, "note": ""}, "f_length": {"label": "Desired length (in cm)", "req": false, "note": "Give a minimum, maximum and average length, in centimetres"}, "f_shives": {"label": "Accepted shives content (%)", "req": false, "note": ""}, "f_colour": {"label": "Colour / retting index", "req": false, "note": ""}, "f_colour_mix": {"label": "Mixed colours in bale accepted?", "req": false, "note": ""}, "f_dust": {"label": "Dust content constraint", "req": false, "note": ""}, "f_humidity": {"label": "Maximum moisture content (%)", "req": false, "note": "Standard: ≤ 13%"}, "f_volume": {"label": "Estimated annual volume (tonnes)", "req": false, "note": ""}, "f_frequency": {"label": "Desired order frequency", "req": false, "note": ""}, "f_spec": {"label": "Other technical specifications", "req": false, "note": "Exact length, tolerance, resistance, storage..."}, "ch_use": {"label": "End use of hemp shives", "req": false, "note": ""}, "ch_grade": {"label": "Desired packaging", "req": false, "note": ""}, "ch_certif": {"label": "Required labels / certifications", "req": false, "note": ""}, "ch_volume": {"label": "Estimated annual volume (tonnes)", "req": false, "note": ""}, "ch_spec": {"label": "Other specifications", "req": false, "note": "Moisture, particle size, etc."}, "cv_use": {"label": "Hemp seeds use", "req": false, "note": ""}, "cv_bio": {"label": "Organic quality required?", "req": false, "note": ""}, "cv_volume": {"label": "Estimated annual volume (tonnes)", "req": false, "note": ""}, "followup_delay": {"label": "Desired follow-up delay", "req": false, "note": ""}, "followup_mode": {"label": "Preferred contact method", "req": false, "note": ""}, "decision": {"label": "Purchase decision timeline", "req": false, "note": ""}, "comments": {"label": "Free comments", "req": false, "note": "Any useful information not covered above"}, "civilite": {"label": "Title", "req": false, "note": ""}, "pd_use": {"label": "Use of hemp fines", "req": false, "note": ""}, "pd_volume": {"label": "Estimated annual volume (tonnes)", "req": false, "note": ""}, "pd_spec": {"label": "Other specifications", "req": false, "note": "Particle size, moisture, packaging..."}, "ch_scent": {"label": "Bedding scent", "req": false, "note": ""}};
-const FR_LISTS  = {"activity": ["Textile / Habillement", "Non-tissé (feutres, nappes aiguilletées)", "Géotextile", "Composite / Automobile", "Isolation / Construction", "Papeterie", "Corderie", "Emballage", "Alimentation humaine", "Alimentation animale", "Distribution / Négoce", "Autre"], "how_know": ["Salon professionnel", "Recommandation / Réseau", "Recherche internet", "Alliance Lin & Chanvre (CELC)", "Client existant", "Autre"], "why_contact": ["Test avant achat", "R&D / Développement produit", "Changement fournisseur", "Nouveau projet", "Achat régulier à établir", "Demande d'information", "Autre"], "products": ["Fibre technique de chanvre", "Chènevotte", "Chènevis", "Fines de chanvre (co-produit)", "Autres produits"], "f_type": ["VF -- Fibre technique : 8 à 15cm", "VFL -- Fibre technique longue: 20 à 30cm", "KF - Fibre courte : 1 à 3 cm", "Plusieurs types"], "f_use": ["Isolation / Air lay", "Non-tissé (feutres, nappes aiguilletées)", "Géotextile", "Automobile (aiguilleté)", "Textile / Filature", "Composite / Matériau biosourcé", "Corderie", "Emballage", "Papeterie", "Rembourrage / Mobilier", "Autre"], "f_shives": ["< 2%", "3 à 5%", "5 à 7%", "7 à 10%", "10 à 15%", "15 à 25%", "Pas de contrainte"], "f_colour": ["Claire, non rouie (G0-G1)", "Rouie (G1,25-G2)", "Mix accepté", "Pas de contrainte"], "f_colour_mix": ["Oui", "Non — couleur uniforme impérative"], "f_dust": ["Très faible (industrie auto / aéro)", "Faible", "Standard", "Pas de contrainte"], "f_volume": ["< 10 T", "10 à 50 T", "50 à 100 T", "100 à 500 T", "> 500 T", "À définir"], "f_frequency": ["Spot (ponctuel)", "Mensuelle", "Trimestrielle", "Semestrielle", "Contrat annuel", "À définir"], "ch_use": ["Béton de chanvre", "Enduit de chanvre", "Isolation projetée", "Isolation banchée", "Litière équine", "Litière petits animaux", "Paillis horticole", "Distribution / Négoce", "Autre"], "ch_grade": ["Sac 9 kg", "Sac 18 kg", "Sac 20 kg", "Vrac"], "ch_certif": ["Label « Construire en chanvre »", "BIO", "Autre"], "ch_volume": ["< 50 T", "50 à 200 T", "200 à 500 T", "500 à 1 000 T", "> 1 000 T", "À définir"], "cv_use": ["Alimentation humaine (FOOD)", "Alimentation animale (FEED)", "Oisellerie / Aquariophilie", "BIO — alimentation", "Transformation industrielle", "Autre"], "cv_bio": ["Oui — BIO impératif", "Non — conventionnel", "Les deux acceptés"], "cv_volume": ["< 10 T", "10 à 50 T", "50 à 200 T", "> 200 T", "À définir"], "followup_delay": ["Sous 48h", "Sous 1 semaine", "Sous 2 semaines", "À votre convenance"], "followup_mode": ["Email", "Téléphone", "Visioconférence", "Visite sur site", "Salon professionnel"], "decision": ["Immédiat (< 1 mois)", "Court terme (1-3 mois)", "Moyen terme (3-6 mois)", "Long terme (> 6 mois)", "Non défini"], "civilite": ["Monsieur", "Madame", "Autre"], "pd_use": ["Combustible / Granulés énergie", "Compost / Amendement agricole", "Méthanisation", "Autre"], "pd_volume": ["< 10 T", "10 à 50 T", "50 à 200 T", "> 200 T", "À définir"], "ch_scent": ["Sans parfum", "Eucalyptus", "Citron"]};
-const EN_LISTS  = {"activity": ["Textile / Apparel", "Nonwoven (felts, needle-punched mats)", "Geotextile", "Composite / Automotive", "Insulation / Construction", "Paper / Pulp", "Cordage", "Packaging", "Human food", "Animal feed", "Distribution / Trading", "Other"], "how_know": ["Trade show", "Recommendation / Network", "Internet search", "Alliance Flax-Linen & Hemp (CELC)", "Existing customer", "Other"], "why_contact": ["Pre-purchase testing", "R&D / Product development", "Supplier change", "New project", "Regular purchase to establish", "Information request", "Other"], "products": ["Technical hemp fibre", "Hemp shives", "Hemp seeds", "Hemp fines (co-product)", "Other products"], "f_type": ["VF -- Technical fibre: 8 to 15cm", "VFL -- Long technical fibre: 20 to 30cm", "KF -- Short fibre: 1 to 3cm", "Multiple types"], "f_use": ["Insulation / Air lay", "Nonwoven (felts, needle-punched mats)", "Geotextile", "Automotive (needlepunched)", "Textile / Spinning", "Composite / Bio-based material", "Cordage", "Packaging", "Paper / Pulp", "Upholstery / Furniture", "Other"], "f_shives": ["< 2%", "3 to 5%", "5 to 7%", "7 to 10%", "10 to 15%", "15 to 25%", "No constraint"], "f_colour": ["Light, unretted (G0-G1)", "Retted (G1.25-G2)", "Mix accepted", "No constraint"], "f_colour_mix": ["Yes", "No — uniform colour mandatory"], "f_dust": ["Very low (auto / aero industry)", "Low", "Standard", "No constraint"], "f_volume": ["< 10 T", "10 to 50 T", "50 to 100 T", "100 to 500 T", "> 500 T", "To be defined"], "f_frequency": ["Spot (one-off)", "Monthly", "Quarterly", "Semi-annual", "Annual contract", "To be defined"], "ch_use": ["Hempcrete", "Hemp plaster", "Sprayed insulation", "Formwork-poured insulation", "Equine bedding", "Small animal bedding", "Horticultural mulch", "Distribution / Trading", "Other"], "ch_grade": ["9 kg bag", "18 kg bag", "20 kg bag", "Bulk"], "ch_certif": ["« Construire en chanvre » label", "Organic", "Other"], "ch_volume": ["< 50 T", "50 to 200 T", "200 to 500 T", "500 to 1,000 T", "> 1,000 T", "To be defined"], "cv_use": ["Human food (FOOD)", "Animal feed (FEED)", "Bird food / Aquarium", "Organic food", "Industrial processing", "Other"], "cv_bio": ["Yes — organic mandatory", "No — conventional", "Both accepted"], "cv_volume": ["< 10 T", "10 to 50 T", "50 to 200 T", "> 200 T", "To be defined"], "followup_delay": ["Within 48h", "Within 1 week", "Within 2 weeks", "At your convenience"], "followup_mode": ["Email", "Phone", "Video call", "On-site visit", "Trade show"], "decision": ["Immediate (< 1 month)", "Short term (1-3 months)", "Medium term (3-6 months)", "Long term (> 6 months)", "Undefined"], "civilite": ["Mr.", "Mrs.", "Other"], "pd_use": ["Fuel / Energy pellets", "Compost / Soil improver", "Anaerobic digestion", "Other"], "pd_volume": ["< 10 T", "10 to 50 T", "50 to 200 T", "> 200 T", "To be defined"], "ch_scent": ["Unscented", "Eucalyptus", "Lemon"]};
+const FR_UI     = {"lang_btn": "🇬🇧 English", "title": "Qualification de votre besoin", "subtitle": "Fibre chanvre · Chènevotte · Chènevis &nbsp;|&nbsp; B2B Industriel &nbsp;|&nbsp; Document confidentiel", "intro": "Ce questionnaire nous permet de qualifier précisément vos besoins. Toutes les informations sont strictement confidentielles. Les champs marqués <strong>*</strong> sont obligatoires.", "send_btn": "Envoyer le questionnaire", "sending": "Envoi en cours…", "success": "✅ Questionnaire envoyé avec succès ! Nous vous recontacterons dans les meilleurs délais.", "error": "❌ Une erreur est survenue. Veuillez réessayer ou contacter dir-commercial@planetechanvre.com", "placeholder": "— Sélectionner —", "sec_a1": "A1 — Coordonnées", "sec_a2": "A2 — Contexte d'achat", "sec_b1": "B1 — Fibre technique de chanvre", "sec_b1_note": "Remplir uniquement si vous êtes intéressé par la fibre", "sec_b2": "B2 — Chènevotte", "sec_b2_note": "Remplir uniquement si vous êtes intéressé par la chènevotte", "sec_b3": "B3 — Chènevis (graines)", "sec_b3_note": "Remplir uniquement si vous êtes intéressé par le chènevis", "sec_c": "C — Suivi et prochain contact", "tagline": "Chanvre industriel 100% français &nbsp;·&nbsp; Non irrigué &nbsp;·&nbsp; Taux de THC &lt; 0,3%", "company_ln": "Planète Chanvre — Île-de-France, France", "sec_b4": "B4 — Fines de chanvre (co-produit)", "sec_b4_note": "Remplir uniquement si vous êtes intéressé par les fines de chanvre", "colour_hint": "Cliquez sur une photo pour sélectionner", "products_error": "Veuillez cocher au moins une famille de produits", "sub_hint": "précisez le(s) type(s) :", "sub_error": "Veuillez sélectionner au moins un type", "other_label": "Précisez", "other_ph": "Précisez votre réponse", "len_min": "Minimum (cm)", "len_max": "Maximum (cm)", "len_avg": "Moyenne souhaitée (cm)", "len_error": "Le minimum doit être inférieur ou égal au maximum, et la moyenne comprise entre les deux", "len_min_gt": "Supérieur au maximum ({v} cm)", "len_max_lt": "Inférieur au minimum ({v} cm)", "len_avg_gt": "Supérieure au maximum ({v} cm)", "len_avg_lt": "Inférieure au minimum ({v} cm)", "group_error": "Veuillez choisir une réponse", "grp_ch_use": ["Construction", "Litière animale", "Espaces verts"], "need_word": "Besoin", "need_remove": "✕ Supprimer ce besoin", "need_max": "5 besoins maximum pour cette gamme", "need_add_b1": "+ Ajouter un autre besoin de fibre", "need_add_b2": "+ Ajouter un autre besoin de chènevotte", "need_add_b3": "+ Ajouter un autre besoin de chènevis", "need_add_b4": "+ Ajouter un autre besoin de fines de chanvre", "ref_label": "Référence :"};
+const EN_UI     = {"lang_btn": "🇫🇷 Français", "title": "Qualification of your requirements", "subtitle": "Hemp fibre · Hemp shives · Hemp seeds &nbsp;|&nbsp; Industrial B2B &nbsp;|&nbsp; Confidential", "intro": "This questionnaire helps us accurately qualify your requirements. All information is strictly confidential. Fields marked <strong>*</strong> are required.", "send_btn": "Submit questionnaire", "sending": "Sending…", "success": "✅ Questionnaire submitted successfully! We will contact you as soon as possible.", "error": "❌ An error occurred. Please try again or contact dir-commercial@planetechanvre.com", "placeholder": "— Select —", "sec_a1": "A1 — Contact details", "sec_a2": "A2 — Purchase context", "sec_b1": "B1 — Technical hemp fibre", "sec_b1_note": "Complete only if you are interested in fibre", "sec_b2": "B2 — Hemp shives (Chènevotte)", "sec_b2_note": "Complete only if you are interested in hemp shives", "sec_b3": "B3 — Hemp seeds (Chènevis)", "sec_b3_note": "Complete only if you are interested in hemp seeds", "sec_c": "C — Follow-up and next contact", "tagline": "100% French industrial hemp &nbsp;·&nbsp; Rain-fed &nbsp;·&nbsp; THC content &lt; 0.3%", "company_ln": "Planète Chanvre — Île-de-France, France", "sec_b4": "B4 — Hemp fines (co-product)", "sec_b4_note": "Fill in only if you are interested in hemp fines", "colour_hint": "Click a photo to select", "products_error": "Please tick at least one product family", "sub_hint": "specify the type(s):", "sub_error": "Please select at least one type", "other_label": "Please specify", "other_ph": "Please specify your answer", "len_min": "Minimum (cm)", "len_max": "Maximum (cm)", "len_avg": "Desired average (cm)", "len_error": "The minimum must not exceed the maximum, and the average must lie between them", "len_min_gt": "Greater than the maximum ({v} cm)", "len_max_lt": "Less than the minimum ({v} cm)", "len_avg_gt": "Greater than the maximum ({v} cm)", "len_avg_lt": "Less than the minimum ({v} cm)", "group_error": "Please choose an answer", "grp_ch_use": ["Construction", "Animal bedding", "Green spaces"], "need_word": "Need", "need_remove": "✕ Remove this need", "need_max": "5 needs maximum for this range", "need_add_b1": "+ Add another hemp fibre need", "need_add_b2": "+ Add another hemp shives need", "need_add_b3": "+ Add another hemp seeds need", "need_add_b4": "+ Add another hemp fines need", "ref_label": "Reference:"};
+const FR_FIELDS = {"company": {"label": "Nom de l'entreprise", "req": true, "note": ""}, "contact": {"label": "Votre prénom et nom", "req": true, "note": ""}, "role": {"label": "Fonction / Poste", "req": false, "note": ""}, "email": {"label": "Email", "req": true, "note": ""}, "phone": {"label": "Téléphone", "req": false, "note": ""}, "address": {"label": "Adresse / Pays", "req": false, "note": ""}, "website": {"label": "Site web", "req": false, "note": ""}, "req_date": {"label": "Date de la demande", "req": false, "note": ""}, "activity": {"label": "Secteur d'activité principal", "req": true, "note": ""}, "how_know": {"label": "Comment avez-vous connu Planète Chanvre ?", "req": false, "note": ""}, "current_supplier": {"label": "Fournisseur actuel (si applicable)", "req": false, "note": ""}, "why_contact": {"label": "Raison principale du contact", "req": true, "note": ""}, "products": {"label": "Produit(s) d'intérêt", "req": true, "note": "Cochez une ou plusieurs familles — les questions détaillées s'affichent selon vos choix"}, "f_type": {"label": "Type de fibre souhaité", "req": false, "note": ""}, "f_use": {"label": "Usage final de la fibre", "req": false, "note": ""}, "f_length": {"label": "Longueur souhaitée (en cm)", "req": false, "note": "Indiquez une longueur minimum, maximum et moyenne, en centimètres"}, "f_shives": {"label": "Taux de chènevotte accepté (%)", "req": false, "note": ""}, "f_colour": {"label": "Couleur / indice de rouissage", "req": false, "note": ""}, "f_colour_mix": {"label": "Mélange de couleurs dans le ballot accepté ?", "req": false, "note": ""}, "f_dust": {"label": "Contrainte taux de poussières", "req": false, "note": ""}, "f_humidity": {"label": "Taux d'humidité max acceptable (%)", "req": false, "note": "Standard : ≤ 13%"}, "f_volume": {"label": "Volume annuel estimé (tonnes)", "req": false, "note": ""}, "f_frequency": {"label": "Fréquence de commande souhaitée", "req": false, "note": ""}, "f_spec": {"label": "Autres spécifications techniques", "req": false, "note": "Longueur exacte, tolérance, résistance, stockage..."}, "ch_use": {"label": "Usage final de la chènevotte", "req": false, "note": ""}, "ch_grade": {"label": "Conditionnement souhaité", "req": false, "note": ""}, "ch_certif": {"label": "Labels / certifications requis", "req": false, "note": ""}, "ch_volume": {"label": "Volume annuel estimé (tonnes)", "req": false, "note": ""}, "ch_spec": {"label": "Autres spécifications", "req": false, "note": "Humidité, taille particule, etc."}, "cv_use": {"label": "Usage du chènevis", "req": false, "note": ""}, "cv_bio": {"label": "Qualité BIO requise ?", "req": false, "note": ""}, "cv_volume": {"label": "Volume annuel estimé (tonnes)", "req": false, "note": ""}, "followup_delay": {"label": "Délai de recontact souhaité", "req": false, "note": ""}, "followup_mode": {"label": "Mode de contact préféré", "req": false, "note": ""}, "decision": {"label": "Horizon de décision d'achat", "req": false, "note": ""}, "comments": {"label": "Commentaires libres", "req": false, "note": "Tout élément utile non couvert par ce questionnaire"}, "civilite": {"label": "Civilité", "req": false, "note": ""}, "pd_use": {"label": "Usage des fines de chanvre", "req": false, "note": ""}, "pd_volume": {"label": "Volume annuel estimé (tonnes)", "req": false, "note": ""}, "pd_spec": {"label": "Autres spécifications", "req": false, "note": "Granulométrie, humidité, conditionnement..."}, "ch_scent": {"label": "Parfum de la litière", "req": false, "note": ""}, "repere": {"label": "Repère / application", "req": false, "note": "Facultatif — ex. : client A, isolation, litière jardineries… Utile si vous avez plusieurs besoins"}};
+const EN_FIELDS = {"company": {"label": "Company name", "req": true, "note": ""}, "contact": {"label": "Your first and last name", "req": true, "note": ""}, "role": {"label": "Job title", "req": false, "note": ""}, "email": {"label": "Email", "req": true, "note": ""}, "phone": {"label": "Phone", "req": false, "note": ""}, "address": {"label": "Address / Country", "req": false, "note": ""}, "website": {"label": "Website", "req": false, "note": ""}, "req_date": {"label": "Date of request", "req": false, "note": ""}, "activity": {"label": "Main industry sector", "req": true, "note": ""}, "how_know": {"label": "How did you hear about Planète Chanvre?", "req": false, "note": ""}, "current_supplier": {"label": "Current supplier (if applicable)", "req": false, "note": ""}, "why_contact": {"label": "Main reason for contact", "req": true, "note": ""}, "products": {"label": "Product(s) of interest", "req": true, "note": "Tick one or more product families — detailed questions appear based on your choice"}, "f_type": {"label": "Required fibre type", "req": false, "note": ""}, "f_use": {"label": "End use of fibre", "req": false, "note": ""}, "f_length": {"label": "Desired length (in cm)", "req": false, "note": "Give a minimum, maximum and average length, in centimetres"}, "f_shives": {"label": "Accepted shives content (%)", "req": false, "note": ""}, "f_colour": {"label": "Colour / retting index", "req": false, "note": ""}, "f_colour_mix": {"label": "Mixed colours in bale accepted?", "req": false, "note": ""}, "f_dust": {"label": "Dust content constraint", "req": false, "note": ""}, "f_humidity": {"label": "Maximum moisture content (%)", "req": false, "note": "Standard: ≤ 13%"}, "f_volume": {"label": "Estimated annual volume (tonnes)", "req": false, "note": ""}, "f_frequency": {"label": "Desired order frequency", "req": false, "note": ""}, "f_spec": {"label": "Other technical specifications", "req": false, "note": "Exact length, tolerance, resistance, storage..."}, "ch_use": {"label": "End use of hemp shives", "req": false, "note": ""}, "ch_grade": {"label": "Desired packaging", "req": false, "note": ""}, "ch_certif": {"label": "Required labels / certifications", "req": false, "note": ""}, "ch_volume": {"label": "Estimated annual volume (tonnes)", "req": false, "note": ""}, "ch_spec": {"label": "Other specifications", "req": false, "note": "Moisture, particle size, etc."}, "cv_use": {"label": "Hemp seeds use", "req": false, "note": ""}, "cv_bio": {"label": "Organic quality required?", "req": false, "note": ""}, "cv_volume": {"label": "Estimated annual volume (tonnes)", "req": false, "note": ""}, "followup_delay": {"label": "Desired follow-up delay", "req": false, "note": ""}, "followup_mode": {"label": "Preferred contact method", "req": false, "note": ""}, "decision": {"label": "Purchase decision timeline", "req": false, "note": ""}, "comments": {"label": "Free comments", "req": false, "note": "Any useful information not covered above"}, "civilite": {"label": "Title", "req": false, "note": ""}, "pd_use": {"label": "Use of hemp fines", "req": false, "note": ""}, "pd_volume": {"label": "Estimated annual volume (tonnes)", "req": false, "note": ""}, "pd_spec": {"label": "Other specifications", "req": false, "note": "Particle size, moisture, packaging..."}, "ch_scent": {"label": "Bedding scent", "req": false, "note": ""}, "repere": {"label": "Reference / application", "req": false, "note": "Optional — e.g. customer A, insulation, garden-centre bedding… Useful if you have several needs"}};
+const FR_LISTS  = {"activity": ["Textile / Habillement", "Non-tissé (feutres, nappes aiguilletées)", "Géotextile", "Composite / Automobile", "Isolation / Construction", "Papeterie", "Corderie", "Emballage", "Alimentation humaine", "Alimentation animale", "Distribution / Négoce", "Autre"], "how_know": ["Salon professionnel", "Recommandation / Réseau", "Recherche internet", "Alliance Lin & Chanvre (CELC)", "Client existant", "Autre"], "why_contact": ["Test avant achat", "R&D / Développement produit", "Changement fournisseur", "Nouveau projet", "Achat régulier à établir", "Demande d'information", "Autre"], "products": ["Fibre technique de chanvre", "Chènevotte", "Chènevis", "Fines de chanvre (co-produit)", "Autres produits"], "f_type": ["VF -- Fibre technique : 8 à 15cm", "VFL -- Fibre technique longue: 20 à 30cm", "KF - Fibre courte : 1 à 3 cm", "Plusieurs types"], "f_use": ["Isolation / Air lay", "Non-tissé (feutres, nappes aiguilletées)", "Géotextile", "Automobile (aiguilleté)", "Textile / Filature", "Composite / Matériau biosourcé", "Corderie", "Emballage", "Papeterie", "Rembourrage / Mobilier", "Autre"], "f_shives": ["< 2%", "3 à 5%", "5 à 7%", "7 à 10%", "10 à 15%", "15 à 25%", "Pas de contrainte"], "f_colour": ["Claire, non rouie (G0-G1)", "Rouie (G1,25-G2)", "Pas de contrainte"], "f_colour_mix": ["Oui", "Non — couleur uniforme impérative"], "f_dust": ["Très faible (industrie auto / aéro)", "Faible", "Standard", "Pas de contrainte"], "f_volume": ["< 10 T", "10 à 50 T", "50 à 100 T", "100 à 500 T", "> 500 T", "À définir"], "f_frequency": ["Spot (ponctuel)", "Mensuelle", "Trimestrielle", "Semestrielle", "Contrat annuel", "À définir"], "ch_use": ["Béton de chanvre", "Enduit de chanvre", "Isolation projetée", "Isolation banchée", "Litière équine", "Litière petits animaux", "Paillis horticole", "Distribution / Négoce", "Autre"], "ch_grade": ["Sac 9 kg", "Sac 18 kg", "Sac 20 kg", "Vrac"], "ch_certif": ["Label « Construire en chanvre »", "BIO", "Autre"], "ch_volume": ["< 50 T", "50 à 200 T", "200 à 500 T", "500 à 1 000 T", "> 1 000 T", "À définir"], "cv_use": ["Alimentation humaine (FOOD)", "Alimentation animale (FEED)", "Oisellerie / Aquariophilie", "BIO — alimentation", "Transformation industrielle", "Autre"], "cv_bio": ["Oui — BIO impératif", "Non — conventionnel", "Les deux acceptés"], "cv_volume": ["< 10 T", "10 à 50 T", "50 à 200 T", "> 200 T", "À définir"], "followup_delay": ["Sous 48h", "Sous 1 semaine", "Sous 2 semaines", "À votre convenance"], "followup_mode": ["Email", "Téléphone", "Visioconférence", "Visite sur site", "Salon professionnel"], "decision": ["Immédiat (< 1 mois)", "Court terme (1-3 mois)", "Moyen terme (3-6 mois)", "Long terme (> 6 mois)", "Non défini"], "civilite": ["Monsieur", "Madame", "Autre"], "pd_use": ["Combustible / Granulés énergie", "Compost / Amendement agricole", "Méthanisation", "Autre"], "pd_volume": ["< 10 T", "10 à 50 T", "50 à 200 T", "> 200 T", "À définir"], "ch_scent": ["Sans parfum", "Eucalyptus", "Citron"]};
+const EN_LISTS  = {"activity": ["Textile / Apparel", "Nonwoven (felts, needle-punched mats)", "Geotextile", "Composite / Automotive", "Insulation / Construction", "Paper / Pulp", "Cordage", "Packaging", "Human food", "Animal feed", "Distribution / Trading", "Other"], "how_know": ["Trade show", "Recommendation / Network", "Internet search", "Alliance Flax-Linen & Hemp (CELC)", "Existing customer", "Other"], "why_contact": ["Pre-purchase testing", "R&D / Product development", "Supplier change", "New project", "Regular purchase to establish", "Information request", "Other"], "products": ["Technical hemp fibre", "Hemp shives", "Hemp seeds", "Hemp fines (co-product)", "Other products"], "f_type": ["VF -- Technical fibre: 8 to 15cm", "VFL -- Long technical fibre: 20 to 30cm", "KF -- Short fibre: 1 to 3cm", "Multiple types"], "f_use": ["Insulation / Air lay", "Nonwoven (felts, needle-punched mats)", "Geotextile", "Automotive (needlepunched)", "Textile / Spinning", "Composite / Bio-based material", "Cordage", "Packaging", "Paper / Pulp", "Upholstery / Furniture", "Other"], "f_shives": ["< 2%", "3 to 5%", "5 to 7%", "7 to 10%", "10 to 15%", "15 to 25%", "No constraint"], "f_colour": ["Light, unretted (G0-G1)", "Retted (G1.25-G2)", "No constraint"], "f_colour_mix": ["Yes", "No — uniform colour mandatory"], "f_dust": ["Very low (auto / aero industry)", "Low", "Standard", "No constraint"], "f_volume": ["< 10 T", "10 to 50 T", "50 to 100 T", "100 to 500 T", "> 500 T", "To be defined"], "f_frequency": ["Spot (one-off)", "Monthly", "Quarterly", "Semi-annual", "Annual contract", "To be defined"], "ch_use": ["Hempcrete", "Hemp plaster", "Sprayed insulation", "Formwork-poured insulation", "Equine bedding", "Small animal bedding", "Horticultural mulch", "Distribution / Trading", "Other"], "ch_grade": ["9 kg bag", "18 kg bag", "20 kg bag", "Bulk"], "ch_certif": ["« Construire en chanvre » label", "Organic", "Other"], "ch_volume": ["< 50 T", "50 to 200 T", "200 to 500 T", "500 to 1,000 T", "> 1,000 T", "To be defined"], "cv_use": ["Human food (FOOD)", "Animal feed (FEED)", "Bird food / Aquarium", "Organic food", "Industrial processing", "Other"], "cv_bio": ["Yes — organic mandatory", "No — conventional", "Both accepted"], "cv_volume": ["< 10 T", "10 to 50 T", "50 to 200 T", "> 200 T", "To be defined"], "followup_delay": ["Within 48h", "Within 1 week", "Within 2 weeks", "At your convenience"], "followup_mode": ["Email", "Phone", "Video call", "On-site visit", "Trade show"], "decision": ["Immediate (< 1 month)", "Short term (1-3 months)", "Medium term (3-6 months)", "Long term (> 6 months)", "Undefined"], "civilite": ["Mr.", "Mrs.", "Other"], "pd_use": ["Fuel / Energy pellets", "Compost / Soil improver", "Anaerobic digestion", "Other"], "pd_volume": ["< 10 T", "10 to 50 T", "50 to 200 T", "> 200 T", "To be defined"], "ch_scent": ["Unscented", "Eucalyptus", "Lemon"]};
 const SECTIONS    = [["a1", ["civilite", "company", "contact", "role", "email", "phone", "address", "website", "req_date"]], ["a2", ["activity", "how_know", "current_supplier", "why_contact", "products"]], ["b1", ["f_use", "f_length", "f_shives", "f_colour", "f_colour_mix", "f_volume", "f_frequency", "f_spec"]], ["b2", ["ch_use", "ch_scent", "ch_grade", "ch_certif", "ch_volume", "ch_spec"]], ["b3", ["cv_use", "cv_bio", "cv_volume"]], ["b4", ["pd_use", "pd_volume", "pd_spec"]], ["c", ["followup_delay", "followup_mode", "decision", "comments"]]];
 const LIST_FIELDS = ["cv_use", "ch_grade", "f_use", "f_volume", "why_contact", "how_know", "decision", "ch_volume", "f_colour_mix", "f_dust", "followup_delay", "ch_use", "f_type", "activity", "f_shives", "f_frequency", "ch_certif", "products", "cv_volume", "followup_mode", "civilite", "pd_use", "pd_volume"];
 const FIELD_TYPES = {"req_date": "date", "email": "email", "phone": "tel", "website": "url", "f_spec": "textarea", "ch_spec": "textarea", "comments": "textarea", "products": "cards", "pd_spec": "textarea", "f_colour": "checks", "f_length": "length3", "how_know": "checks", "f_use": "checks", "ch_use": "checks", "ch_grade": "checks", "ch_certif": "checks", "cv_use": "checks", "pd_use": "checks", "followup_mode": "checks", "civilite": "radios", "activity": "radios", "why_contact": "radios", "f_shives": "checks", "f_colour_mix": "radios", "f_volume": "radios", "f_frequency": "radios", "ch_volume": "radios", "cv_volume": "radios", "pd_volume": "radios", "followup_delay": "radios", "decision": "radios", "cv_bio": "radios", "ch_scent": "checks"};
@@ -207,7 +223,15 @@ const OTHER_IDX = {"cv_use": 5, "f_use": 10, "why_contact": 6, "how_know": 5, "c
 const CHECK_GROUPS = {"ch_use": [[0, 1, 2, 3], [4, 5], [6]]};
 const SHOW_IF = {"ch_scent": {"field": "ch_use", "idx": [4, 5]}};
 const PREVIEW = /[?&]apercu/.test(location.search);
+const REPEAT_SECS = ["b1", "b2", "b3", "b4"];
+const MAX_NEEDS = 5;
+const GAMME_FR = {"b1": "Fibre technique", "b2": "Chènevotte", "b3": "Chènevis", "b4": "Fines de chanvre"};
 let lang = "FR";
+let NEEDS = {}, needSeq = 0;
+function resetNeeds(){NEEDS={};REPEAT_SECS.forEach(function(s){needSeq++;NEEDS[s]=[needSeq];});}
+resetNeeds();
+function uiCur(){return lang==="FR"?FR_UI:EN_UI;}
+function lstCur(){return lang==="FR"?FR_LISTS:EN_LISTS;}
 function setTodayDate() {
   var today=new Date(),dd=String(today.getDate()).padStart(2,'0'),
       mm=String(today.getMonth()+1).padStart(2,'0'),yyyy=today.getFullYear();
@@ -243,18 +267,17 @@ function checkRequiredFields(markErrors) {
     if(markErrors)g.classList.toggle('field-error',none);
     if(none)missing++;
   });
-  return missing+checkProducts(markErrors)+checkLength(markErrors);
+  return missing+checkProducts(markErrors)+checkLengths();
 }
-function lenVals(){
+function fmtNum(x,fr){var s=String(x);return fr?s.replace(".",","):s;}
+function lenVals(box){
   var v={};
-  ["min","max","avg"].forEach(function(k){var e=document.getElementById('f_len_'+k);v[k]=(e&&!e.disabled&&e.value!=="")?parseFloat(e.value):null;});
+  ["min","max","avg"].forEach(function(k){var e=box.querySelector('input[data-k="'+k+'"]');v[k]=(e&&!e.disabled&&e.value!=="")?parseFloat(e.value):null;});
   return v;
 }
-function checkLength(){
-  var box=document.getElementById('len3-f_length');if(!box)return 0;
-  var ui=lang==="FR"?FR_UI:EN_UI,v=lenVals(),msg={min:"",max:"",avg:""};
-  var f=function(x){var s=String(x);return lang==="FR"?s.replace(".",","):s;};
-  var t=function(k,x){return ui[k].replace("{v}",f(x));};
+function checkLengthBox(box){
+  var ui=uiCur(),v=lenVals(box),msg={min:"",max:"",avg:""};
+  var t=function(k,x){return ui[k].replace("{v}",fmtNum(x,lang==="FR"));};
   if(v.min!==null&&v.max!==null&&v.min>v.max){msg.min=t("len_min_gt",v.max);msg.max=t("len_max_lt",v.min);}
   if(v.avg!==null){
     if(v.max!==null&&v.avg>v.max)msg.avg=t("len_avg_gt",v.max);
@@ -262,35 +285,28 @@ function checkLength(){
   }
   var bad=0;
   ["min","max","avg"].forEach(function(k){
-    document.getElementById('f_len_'+k).classList.toggle('field-error',!!msg[k]);
-    document.getElementById('lennote-'+k).textContent=msg[k];
+    box.querySelector('input[data-k="'+k+'"]').classList.toggle('field-error',!!msg[k]);
+    box.querySelector('.len-note[data-k="'+k+'"]').textContent=msg[k];
     if(msg[k])bad=1;
   });
   return bad;
 }
-function lengthText(){
-  var v=lenVals(),fr=lang==="FR",parts=[];
-  var f=function(x){var s=String(x);return fr?s.replace(".",","):s;};
-  if(v.min!==null)parts.push("min "+f(v.min)+" cm");
-  if(v.max!==null)parts.push("max "+f(v.max)+" cm");
-  if(v.avg!==null)parts.push((fr?"moyenne ":"average ")+f(v.avg)+" cm");
-  return parts.join(" · ");
+function checkLengths(){var n=0;document.querySelectorAll('.len3').forEach(function(b){n+=checkLengthBox(b);});return n;}
+function lengthText(box){
+  var v=lenVals(box),p=[];
+  if(v.min!==null)p.push("min "+fmtNum(v.min,true)+" cm");
+  if(v.max!==null)p.push("max "+fmtNum(v.max,true)+" cm");
+  if(v.avg!==null)p.push("moyenne "+fmtNum(v.avg,true)+" cm");
+  return p.join(" · ");
 }
-function lstCur(){return lang==="FR"?FR_LISTS:EN_LISTS;}
 function getProducts(){
-  var st={cats:[],subs:{},other:""};
+  var st={cats:[],other:""};
   document.querySelectorAll('#pcards-products .pcat:checked').forEach(function(cb){st.cats.push(+cb.getAttribute('data-idx'));});
-  document.querySelectorAll('.psubcb:checked').forEach(function(cb){
-    var c=+cb.getAttribute('data-cat');(st.subs[c]=st.subs[c]||[]).push(+cb.getAttribute('data-idx'));
-  });
   var o=document.getElementById('products_other');if(o)st.other=o.value;
   return st;
 }
 function setProducts(st){
   document.querySelectorAll('#pcards-products .pcat').forEach(function(cb){cb.checked=st.cats.indexOf(+cb.getAttribute('data-idx'))>=0;});
-  document.querySelectorAll('.psubcb').forEach(function(cb){
-    var s=st.subs[+cb.getAttribute('data-cat')]||[];cb.checked=s.indexOf(+cb.getAttribute('data-idx'))>=0;
-  });
   var o=document.getElementById('products_other');if(o)o.value=st.other;
 }
 function checkProducts(mark){
@@ -299,17 +315,10 @@ function checkProducts(mark){
   if(mark)cards.classList.toggle('field-error',none);
   if(none)missing++;
   PRODUCT_TREE.forEach(function(p,i){
-    var on=st.cats.indexOf(i)>=0;
-    if(p.subs){
-      var bad=on&&!(st.subs[i]&&st.subs[i].length);
-      if(mark)document.getElementById('psubcards-'+i).classList.toggle('field-error',bad);
-      if(bad)missing++;
-    }
-    if(p.other){
-      var bad2=on&&!st.other.trim();
-      if(mark)document.getElementById('products_other').classList.toggle('field-error',bad2);
-      if(bad2)missing++;
-    }
+    if(!p.other)return;
+    var bad=st.cats.indexOf(i)>=0&&!st.other.trim();
+    if(mark)document.getElementById('products_other').classList.toggle('field-error',bad);
+    if(bad)missing++;
   });
   return missing;
 }
@@ -322,49 +331,45 @@ function buildProducts(ui,lst){
   html+='</div><div class="group-error">'+ui.products_error+'</div>';
   PRODUCT_TREE.forEach(function(p,i){
     html+='<div class="psub" id="psub-'+i+'" style="--gc:'+p.color+'">';
-    if(p.subs){
-      html+='<div class="psub-title">'+lst.products[i]+' — '+ui.sub_hint+'</div><div class="pcards small" id="psubcards-'+i+'">';
-      lst[p.subs].forEach(function(o,j){
-        var box=imgBox("pimg",p.imgs[j],o)||'<span class="pimg empty"></span>';
-        html+='<label class="pcard"><input type="checkbox" class="psubcb" data-cat="'+i+'" data-idx="'+j+'">'+box+'<span class="plabel">'+o+'</span></label>';
-      });
-      html+='</div><div class="group-error">'+ui.sub_error+'</div>';
-    } else if(p.other){
-      html+='<div class="psub-title">'+lst.products[i]+' — '+ui.other_label+'</div><input type="text" id="products_other" placeholder="'+ui.other_ph+'">';
-    }
+    if(p.other)html+='<div class="psub-title">'+lst.products[i]+' — '+ui.other_label+'</div><input type="text" id="products_other" placeholder="'+ui.other_ph+'">';
     html+='</div>';
   });
   return html;
 }
-function productsText(){
-  var st=getProducts(),lst=lstCur(),parts=[];
+function productsText(L){
+  var st=getProducts(),parts=[];
   st.cats.forEach(function(i){
-    var p=PRODUCT_TREE[i],t=lst.products[i];
-    if(p.subs&&st.subs[i])t+=" : "+st.subs[i].map(function(j){return lst[p.subs][j];}).join(", ");
-    if(p.other&&st.other.trim())t+=" : "+st.other.trim();
+    var t=L.products[i];
+    if(PRODUCT_TREE[i].other&&st.other.trim())t+=" : "+st.other.trim();
     parts.push(t);
   });
   return parts.join(" ; ");
 }
-function subsText(i){
-  var st=getProducts(),lst=lstCur();
-  if(st.cats.indexOf(i)<0||!st.subs[i])return "";
-  return st.subs[i].map(function(j){return lst[PRODUCT_TREE[i].subs][j];}).join(", ");
+function updateOthers(){
+  document.querySelectorAll('.checks[data-other]').forEach(function(g){
+    var opt=g.querySelector('input[data-idx="'+g.getAttribute('data-other')+'"]'),wrap=g.parentNode.querySelector('.other-wrap');
+    if(!opt||!wrap)return;
+    var inp=wrap.querySelector('input'),on=opt.checked;
+    wrap.classList.toggle('show',on);
+    on=on&&!opt.disabled;
+    inp.disabled=!on;
+    if(on){inp.setAttribute('required','');inp.classList.add('required-field');}
+    else{inp.removeAttribute('required');inp.classList.remove('required-field','field-error');}
+  });
 }
-function updateOther(name){
-  var opt=document.querySelector('#checks-'+name+' input[data-idx="'+OTHER_IDX[name]+'"]'),inp=document.getElementById(OTHER_FIELDS[name]);
-  if(!opt||!inp)return;
-  var on=opt.checked;
-  document.getElementById('wrap-'+OTHER_FIELDS[name]).classList.toggle('show',on);
-  on=on&&!opt.disabled;
-  inp.disabled=!on;
-  if(on){inp.setAttribute('required','');inp.classList.add('required-field');}
-  else{inp.removeAttribute('required');inp.classList.remove('required-field','field-error');}
+function updateShowIf(){
+  Object.keys(SHOW_IF).forEach(function(name){
+    var rule=SHOW_IF[name];
+    document.querySelectorAll('.field[data-f="'+name+'"]').forEach(function(fd){
+      var scope=fd.closest('.need')||fd.parentNode;
+      var src=scope.querySelector('.field[data-f="'+rule.field+'"] .checks');
+      var on=!!src&&rule.idx.some(function(i){var b=src.querySelector('input[data-idx="'+i+'"]');return b&&b.checked&&!b.disabled;});
+      fd.style.display=on?"":"none";
+      fd.querySelectorAll('input').forEach(function(b){b.disabled=!on;});
+    });
+  });
 }
-function imgUrl(key){
-  if(IMAGES[key])return IMAGES[key];
-  return null;
-}
+function imgUrl(key){return IMAGES[key]||null;}
 function imgBox(cls,key,label){
   var u=imgUrl(key);
   if(IMG_CONTAIN.indexOf(key)>=0)cls+=" contain";
@@ -372,24 +377,11 @@ function imgBox(cls,key,label){
   if(PREVIEW)return '<span class="'+cls+'">'+key+'</span>';
   return null;
 }
-function buildGuide(name,opts,hint){
-  var keys=IMG_OPTS[name]||[],figs="";
-  keys.forEach(function(k,i){
-    var box=imgBox("gimg",k,opts[i]);
-    if(box)figs+='<figure data-val="'+opts[i].replace(/"/g,"&quot;")+'">'+box+'<figcaption>'+opts[i]+'</figcaption></figure>';
-  });
-  return figs?'<div class="guide-hint">'+hint+'</div><div class="imgguide" id="guide-'+name+'">'+figs+'</div>':"";
-}
 function fieldImg(name,label){
   var k=FIELD_IMG[name];if(!k)return "";
   var u=imgUrl(k);
   if(u)return '<img class="fieldimg" src="'+u+'" alt="'+label+'">';
   return PREVIEW?'<div class="fieldimg ph">'+k+'</div>':"";
-}
-function syncGuide(name){
-  var g=document.getElementById('guide-'+name),sel=document.getElementById(name);
-  if(!g||!sel)return;
-  g.querySelectorAll('figure').forEach(function(f){f.classList.toggle('sel',f.getAttribute('data-val')===sel.value);});
 }
 function updateSections(){
   if(!document.getElementById('pcards-products'))return;
@@ -397,28 +389,19 @@ function updateSections(){
   document.querySelectorAll('.pcard input').forEach(function(cb){cb.parentNode.classList.toggle('checked',cb.checked);});
   PRODUCT_TREE.forEach(function(p,i){
     var on=st.cats.indexOf(i)>=0;
-    document.getElementById('psub-'+i).classList.toggle('show',on&&!!(p.subs||p.other));
+    document.getElementById('psub-'+i).classList.toggle('show',on&&!!p.other);
     if(on&&p.sec)show[p.sec]=true;
     if(p.sec){var sc=document.getElementById('fields-'+p.sec).parentNode;sc.classList.add('gamme');sc.style.setProperty('--gc',p.color);}
   });
   if(document.querySelector('#fields-a2 .pcards.field-error, #products_other.field-error'))checkProducts(true);
-  ["b1","b2","b3","b4"].forEach(function(id){
+  REPEAT_SECS.forEach(function(id){
     var c=document.getElementById('fields-'+id);if(!c)return;
     var on=!!show[id];
     c.parentNode.style.display=on?"":"none";
-    c.querySelectorAll('input,select,textarea').forEach(function(el){el.disabled=!on;});
+    c.querySelectorAll('input,select,textarea,button').forEach(function(el){el.disabled=!on;});
   });
-  Object.keys(OTHER_FIELDS).forEach(function(k){updateOther(k);});
+  updateOthers();
   updateShowIf();
-}
-function updateShowIf(){
-  Object.keys(SHOW_IF).forEach(function(name){
-    var rule=SHOW_IF[name],grp=document.getElementById('checks-'+name);if(!grp)return;
-    var src=document.getElementById('checks-'+rule.field);
-    var on=!!src&&rule.idx.some(function(i){var b=src.querySelector('input[data-idx="'+i+'"]');return b&&b.checked&&!b.disabled;});
-    grp.closest('.field').style.display=on?"":"none";
-    grp.querySelectorAll('input').forEach(function(b){b.disabled=!on;});
-  });
 }
 function renderBanner(){
   var b=document.getElementById('banner'),u=imgUrl("banniere");
@@ -433,8 +416,79 @@ window.addEventListener('scroll',function(){
   if(rect.top>=0&&rect.bottom<=window.innerHeight){btn.classList.add('hidden');}
   else{btn.classList.remove('hidden');}
 });
+function renderField(name,sfx,container,ui,fld,lst,saved,savedIdx,prodState){
+  var fd=fld[name]||{label:name,req:false,note:""},key=name+sfx,type=FIELD_TYPES[name];
+  var div=document.createElement("div");div.className="field";div.setAttribute('data-f',name);
+  var reqMark=fd.req?'<span class="req">*</span>':"";
+  var noteTxt=fd.note?'<span class="note">'+fd.note+'</span>':"";
+  var head='<label>'+fd.label+reqMark+noteTxt+'</label>';
+  if(type==="cards"){
+    div.innerHTML=head+buildProducts(ui,lst);
+    container.appendChild(div);
+    if(prodState)setProducts(prodState);
+    div.querySelectorAll('input').forEach(function(el){el.addEventListener(el.type==="checkbox"?'change':'input',updateSections);});
+    return;
+  }
+  if(type==="length3"){
+    div.innerHTML=head+'<div class="len3">'+["min","max","avg"].map(function(k){
+      return '<label><span>'+ui["len_"+k]+'</span><input type="number" name="f_len_'+k+sfx+'" data-k="'+k+'" min="0" step="0.1" inputmode="decimal"><small class="len-note" data-k="'+k+'"></small></label>';
+    }).join("")+'</div>';
+    container.appendChild(div);
+    var box=div.querySelector('.len3');
+    box.querySelectorAll('input').forEach(function(e){
+      if(saved[e.name])e.value=saved[e.name];
+      e.addEventListener('input',function(){checkLengthBox(box);});
+    });
+    checkLengthBox(box);
+    return;
+  }
+  if((type==="checks"||type==="radios")&&lst[name]){
+    var single=type==="radios";
+    var labs=lst[name].map(function(o,i){
+      return '<label><input type="checkbox" name="'+key+'" value="'+o+'" data-idx="'+i+'">'+o+'</label>';
+    }),grpDef=CHECK_GROUPS[name],body;
+    if(grpDef){
+      var used={};
+      body=grpDef.map(function(g,gi){
+        g.forEach(function(i){used[i]=1;});
+        return '<div class="cgrp"><div class="cgrp-t">'+ui["grp_"+name][gi]+'</div>'+g.map(function(i){return labs[i];}).join("")+'</div>';
+      }).join("")+'<div class="cgrp-rest">'+labs.filter(function(l,i){return !used[i];}).join("")+'</div>';
+    } else body=labs.join("");
+    var otherAttr=OTHER_FIELDS[name]?' data-other="'+OTHER_IDX[name]+'"':'';
+    var html=head+fieldImg(name,fd.label)+'<div class="checks'+(grpDef?' grouped':'')+'" id="checks-'+key+'" data-name="'+name+'" data-req="'+(fd.req?1:0)+'"'+otherAttr+'>'+body+'</div><div class="grp-error">'+ui.group_error+'</div>';
+    if(OTHER_FIELDS[name])html+='<div class="other-wrap"><input type="text" name="'+OTHER_FIELDS[name]+sfx+'" id="'+OTHER_FIELDS[name]+sfx+'" placeholder="'+ui.other_ph+'"></div>';
+    div.innerHTML=html;
+    container.appendChild(div);
+    var grp=div.querySelector('.checks'),boxes=grp.querySelectorAll('input');
+    boxes.forEach(function(cb){
+      cb.checked=(savedIdx[key]||[]).indexOf(+cb.getAttribute('data-idx'))>=0;
+      cb.addEventListener('change',function(){
+        if(cb.checked&&single)boxes.forEach(function(b){if(b!==cb)b.checked=false;});
+        else if(cb.checked&&EXCLUSIVE_LAST.indexOf(name)>=0){
+          var last=boxes.length-1,isLast=+cb.getAttribute('data-idx')===last;
+          boxes.forEach(function(b){if(b!==cb&&(isLast||+b.getAttribute('data-idx')===last))b.checked=false;});
+        }
+        if(grp.querySelector('input:checked'))grp.classList.remove('field-error');
+        updateOthers();
+        updateShowIf();
+      });
+    });
+    if(OTHER_FIELDS[name]){var oi=div.querySelector('.other-wrap input');if(saved[oi.name])oi.value=saved[oi.name];}
+    return;
+  }
+  var t=type||"text",reqAttr=fd.req?' required class="required-field"':'',inp;
+  if(t==="textarea")inp='<textarea name="'+key+'" id="'+key+'" rows="3"'+reqAttr+'></textarea>';
+  else inp='<input type="'+t+'" name="'+key+'" id="'+key+'"'+reqAttr+'>';
+  div.innerHTML='<label for="'+key+'">'+fd.label+reqMark+noteTxt+'</label>'+inp;
+  container.appendChild(div);
+  var el=div.querySelector('[name]');
+  if(saved[key]!==undefined)el.value=saved[key];
+  if(fd.req)el.addEventListener('change',function(){
+    if(this.value&&this.value.trim()!==''){this.classList.remove('field-error');this.classList.add('required-field');}
+  });
+}
 function render() {
-  var ui=lang==="FR"?FR_UI:EN_UI,fld=lang==="FR"?FR_FIELDS:EN_FIELDS,lst=lang==="FR"?FR_LISTS:EN_LISTS;
+  var ui=uiCur(),fld=lang==="FR"?FR_FIELDS:EN_FIELDS,lst=lstCur();
   document.documentElement.lang=lang==="FR"?"fr":"en";
   setText("ui-title",ui.title);setHTML("ui-subtitle",ui.subtitle);
   setText("ui-company",ui.company_ln);setHTML("ui-intro",ui.intro);
@@ -445,6 +499,8 @@ function render() {
   setHTML("ui-footer-ret",lang==="FR"
     ?"Retourner ce formulaire à : <strong>dir-commercial@planetechanvre.com</strong>"
     :"Return this form to: <strong>dir-commercial@planetechanvre.com</strong>");
+  setText("ui-site",lang==="FR"?"Visiter notre site":"Visit our website");
+  setText("ui-findus",lang==="FR"?"Où nous sommes":"Find us");
   var prodState=document.getElementById('pcards-products')?getProducts():null;
   ["sec_a1","sec_a2","sec_b1","sec_b1_note","sec_b2","sec_b2_note","sec_b3","sec_b3_note","sec_b4","sec_b4_note","sec_c"].forEach(function(k){
     var el=document.getElementById("ui-"+k);if(el)el.textContent=ui[k];
@@ -454,116 +510,34 @@ function render() {
     if(!container)return;
     var saved={},savedIdx={};
     container.querySelectorAll("[name]").forEach(function(el){
-      if(el.type==="checkbox"||el.type==="radio"){savedIdx[el.name]=savedIdx[el.name]||[];if(el.checked)savedIdx[el.name].push(+el.getAttribute('data-idx'));}
+      if(el.type==="checkbox"){savedIdx[el.name]=savedIdx[el.name]||[];if(el.checked)savedIdx[el.name].push(+el.getAttribute('data-idx'));}
       else saved[el.name]=el.value;
     });
     container.innerHTML="";
-    fieldList.forEach(function(name){
-      var fd=fld[name]||{label:name,req:false,note:""};
-      var div=document.createElement("div");div.className="field";
-      var reqMark=fd.req?'<span class="req">*</span>':"";
-      var noteTxt=fd.note?'<span class="note">'+fd.note+'</span>':"";
-      var reqAttr=fd.req?"required":"";
-      var reqClass=fd.req?" required-field":"";
-      var inp;
-      if(FIELD_TYPES[name]==="cards"){
-        div.innerHTML='<label>'+fd.label+reqMark+noteTxt+'</label>'+buildProducts(ui,lst);
-        container.appendChild(div);
-        if(prodState)setProducts(prodState);
-        div.querySelectorAll('input').forEach(function(el){el.addEventListener(el.type==="checkbox"?'change':'input',updateSections);});
-        return;
-      }
-      if(FIELD_TYPES[name]==="length3"){
-        inp='<div class="len3" id="len3-'+name+'">'+["min","max","avg"].map(function(k){
-          return '<label><span>'+ui["len_"+k]+'</span><input type="number" name="f_len_'+k+'" id="f_len_'+k+'" min="0" step="0.1" inputmode="decimal"><small class="len-note" id="lennote-'+k+'"></small></label>';
-        }).join("")+'</div>';
-        div.innerHTML='<label>'+fd.label+reqMark+noteTxt+'</label>'+inp;
-        container.appendChild(div);
-        ["min","max","avg"].forEach(function(k){
-          var e=document.getElementById('f_len_'+k);
-          if(saved['f_len_'+k])e.value=saved['f_len_'+k];
-          e.addEventListener('input',function(){checkLength();});
-        });
-        checkLength();
-        return;
-      }
-      if((FIELD_TYPES[name]==="checks"||FIELD_TYPES[name]==="radios")&&lst[name]){
-        var single=FIELD_TYPES[name]==="radios",typ="checkbox";
-        var labs=lst[name].map(function(o,i){
-          return '<label><input type="'+typ+'" name="'+name+'" value="'+o+'" data-idx="'+i+'">'+o+'</label>';
-        }),grpDef=CHECK_GROUPS[name],body;
-        if(grpDef){
-          var used={};
-          body=grpDef.map(function(g,gi){
-            g.forEach(function(i){used[i]=1;});
-            return '<div class="cgrp"><div class="cgrp-t">'+ui["grp_"+name][gi]+'</div>'+g.map(function(i){return labs[i];}).join("")+'</div>';
-          }).join("")+'<div class="cgrp-rest">'+labs.filter(function(l,i){return !used[i];}).join("")+'</div>';
-        } else body=labs.join("");
-        inp=fieldImg(name,fd.label)+'<div class="checks'+(grpDef?' grouped':'')+'" id="checks-'+name+'" data-req="'+(fd.req?1:0)+'">'+body+'</div><div class="grp-error">'+ui.group_error+'</div>';
-        if(OTHER_FIELDS[name])inp+='<div class="other-wrap" id="wrap-'+OTHER_FIELDS[name]+'"><input type="text" name="'+OTHER_FIELDS[name]+'" id="'+OTHER_FIELDS[name]+'" placeholder="'+ui.other_ph+'"></div>';
-        div.innerHTML='<label>'+fd.label+reqMark+noteTxt+'</label>'+inp;
-        container.appendChild(div);
-        var grp=div.querySelector('.checks'),boxes=grp.querySelectorAll('input');
-        boxes.forEach(function(cb){
-          cb.checked=(savedIdx[name]||[]).indexOf(+cb.getAttribute('data-idx'))>=0;
-          cb.addEventListener('change',function(){
-            if(cb.checked&&single)boxes.forEach(function(b){if(b!==cb)b.checked=false;});
-            else if(cb.checked&&EXCLUSIVE_LAST.indexOf(name)>=0){
-              var last=boxes.length-1,isLast=+cb.getAttribute('data-idx')===last;
-              boxes.forEach(function(b){if(b!==cb&&(isLast||+b.getAttribute('data-idx')===last))b.checked=false;});
-            }
-            if(grp.querySelector('input:checked'))grp.classList.remove('field-error');
-            if(OTHER_FIELDS[name])updateOther(name);
-            updateShowIf();
-          });
-        });
-        if(OTHER_FIELDS[name]){
-          if(saved[OTHER_FIELDS[name]])document.getElementById(OTHER_FIELDS[name]).value=saved[OTHER_FIELDS[name]];
-          updateOther(name);
-        }
-        return;
-      }
-      if(LIST_FIELDS.indexOf(name)>=0&&lst[name]){
-        var opts=lst[name].map(function(o){return '<option value="'+o+'">'+o+'</option>';}).join("");
-        inp=(IMG_OPTS[name]?buildGuide(name,lst[name],ui.colour_hint):"")+fieldImg(name,fd.label)+'<select name="'+name+'" id="'+name+'" class="'+reqClass.trim()+'" '+reqAttr+'><option value="">'+ui.placeholder+'</option>'+opts+'</select>';
-        if(OTHER_FIELDS[name])inp+='<div class="other-wrap" id="wrap-'+OTHER_FIELDS[name]+'"><input type="text" name="'+OTHER_FIELDS[name]+'" id="'+OTHER_FIELDS[name]+'" placeholder="'+ui.other_ph+'"></div>';
-      } else if(FIELD_TYPES[name]==="textarea"){
-        inp='<textarea name="'+name+'" id="'+name+'" class="'+reqClass.trim()+'" rows="3" '+reqAttr+'></textarea>';
-      } else {
-        var t=FIELD_TYPES[name]||"text";
-        inp='<input type="'+t+'" name="'+name+'" id="'+name+'" class="'+reqClass.trim()+'" '+reqAttr+'>';
-      }
-      div.innerHTML='<label for="'+name+'">'+fd.label+reqMark+noteTxt+'</label>'+inp;
-      container.appendChild(div);
-      if(saved[name]!==undefined){
-        var el2=container.querySelector('[name="'+name+'"]');
-        if(el2){
-          var prev=saved[name],fromL=lang==="FR"?EN_LISTS:FR_LISTS,toL=lang==="FR"?FR_LISTS:EN_LISTS;
-          if(el2.tagName==="SELECT"&&fromL[name]&&fromL[name].indexOf(prev)>=0)prev=toL[name][fromL[name].indexOf(prev)];
-          el2.value=prev;
-        }
-      }
-      if(OTHER_FIELDS[name]){
-        var oName=OTHER_FIELDS[name];
-        if(saved[oName])document.getElementById(oName).value=saved[oName];
-        document.getElementById(name).addEventListener('change',function(){updateOther(name);});
-        updateOther(name);
-      }
-      var guide=document.getElementById('guide-'+name);
-      if(guide){
-        guide.querySelectorAll('figure').forEach(function(f){
-          f.addEventListener('click',function(){var s=document.getElementById(name);s.value=f.getAttribute('data-val');syncGuide(name);});
-        });
-        document.getElementById(name).addEventListener('change',function(){syncGuide(name);});
-        syncGuide(name);
-      }
-      var inp2=container.querySelector('[name="'+name+'"]');
-      if(inp2&&fd.req){
-        inp2.addEventListener('change',function(){
-          if(this.value&&this.value.trim()!==''){this.classList.remove('field-error');this.classList.add('required-field');}
-        });
-      }
+    if(REPEAT_SECS.indexOf(secId)<0){
+      fieldList.forEach(function(name){renderField(name,"",container,ui,fld,lst,saved,savedIdx,prodState);});
+      return;
+    }
+    var ids=NEEDS[secId],multi=ids.length>1;
+    ids.forEach(function(id,k){
+      var blk=document.createElement("div");blk.className="need";
+      blk.setAttribute('data-sec',secId);blk.setAttribute('data-id',id);
+      if(multi)blk.innerHTML='<div class="need-head"><span>'+ui.need_word+' '+(k+1)+'</span><button type="button" class="need-rm">'+ui.need_remove+'</button></div>';
+      container.appendChild(blk);
+      ["repere"].concat(fieldList).forEach(function(name){renderField(name,"__"+id,blk,ui,fld,lst,saved,savedIdx,null);});
+      var rm=blk.querySelector('.need-rm');
+      if(rm)rm.addEventListener('click',function(){NEEDS[secId]=NEEDS[secId].filter(function(x){return x!==id;});render();});
     });
+    var w=document.createElement("div");w.className="need-add-wrap";
+    if(ids.length<MAX_NEEDS){
+      w.innerHTML='<button type="button" class="need-add">'+ui["need_add_"+secId]+'</button>';
+      w.querySelector('button').addEventListener('click',function(){
+        needSeq++;NEEDS[secId].push(needSeq);render();
+        var nb=document.querySelector('.need[data-id="'+needSeq+'"]');
+        if(nb)nb.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    } else w.innerHTML='<div class="need-max">'+ui.need_max+'</div>';
+    container.appendChild(w);
   });
   updateSections();
   renderBanner();
@@ -572,39 +546,63 @@ function render() {
 function toggleLang(){lang=lang==="FR"?"EN":"FR";render();}
 function setText(id,val){var el=document.getElementById(id);if(el)el.textContent=val;}
 function setHTML(id,val){var el=document.getElementById(id);if(el)el.innerHTML=val;}
-
+function fieldValue(fd){
+  var name=fd.getAttribute('data-f'),type=FIELD_TYPES[name];
+  if(type==="cards")return productsText(FR_LISTS);
+  if(type==="length3"){var b=fd.querySelector('.len3');return b.querySelector('input').disabled?"":lengthText(b);}
+  if(type==="checks"||type==="radios"){
+    var vals=[];
+    fd.querySelectorAll('.checks input:checked').forEach(function(cb){
+      if(cb.disabled)return;
+      var i=+cb.getAttribute('data-idx'),v=FR_LISTS[name][i];
+      if(OTHER_FIELDS[name]&&i===OTHER_IDX[name]){var t=fd.querySelector('.other-wrap input').value.trim();if(t)v+=" — "+t;}
+      vals.push(v);
+    });
+    return vals.join(", ");
+  }
+  var el=fd.querySelector('[name]');
+  return (!el||el.disabled)?"":el.value.trim();
+}
+function collect(){
+  var data={},besoins=[];
+  SECTIONS.forEach(function(pair){
+    var s=pair[0],c=document.getElementById('fields-'+s);
+    if(!c)return;
+    if(REPEAT_SECS.indexOf(s)<0){
+      c.querySelectorAll(':scope > .field').forEach(function(fd){var v=fieldValue(fd);if(v!=="")data[fd.getAttribute('data-f')]=v;});
+      return;
+    }
+    if(c.parentNode.style.display==="none")return;
+    c.querySelectorAll('.need').forEach(function(blk,k){
+      var b={_gamme:GAMME_FR[s],_need_no:String(besoins.length+1)};
+      blk.querySelectorAll('.field').forEach(function(fd){var v=fieldValue(fd);if(v!=="")b[fd.getAttribute('data-f')]=v;});
+      besoins.push(b);
+      if(k===0)Object.keys(b).forEach(function(key){if(key.charAt(0)!=="_")data[key]=b[key];});
+    });
+  });
+  data._besoins=JSON.stringify(besoins);
+  return data;
+}
 function handleSubmit(e) {
   e.preventDefault();
   checkRequiredFields(true);
   var missing=checkRequiredFields(false);
   if(missing>0){var firstErr=document.querySelector('.field-error');if(firstErr)firstErr.scrollIntoView({behavior:'smooth',block:'center'});return;}
-  var ui=lang==="FR"?FR_UI:EN_UI,btn=document.getElementById("btn-send"),alertEl=document.getElementById("alert-box");
+  var ui=uiCur(),btn=document.getElementById("btn-send"),alertEl=document.getElementById("alert-box");
   btn.disabled=true;btn.textContent=ui.sending;alertEl.style.display="none";
-  var data={};
-  data["_lang"]=lang;data["_variant"]="PC";data["_timestamp"]=new Date().toISOString();
-  new FormData(document.getElementById("qform")).forEach(function(v,k){data[k]=data[k]?data[k]+", "+v:v;});
-  data["products"]=productsText();
-  var lt=lengthText();
-  delete data.f_len_min;delete data.f_len_max;delete data.f_len_avg;
-  if(lt)data["f_length"]=lt;
-  var fib=subsText(0),cv=subsText(2);
-  if(fib)data["f_type"]=fib;
-  if(cv)data["cv_bio"]=cv;
-  Object.keys(OTHER_FIELDS).forEach(function(k){
-    var o=OTHER_FIELDS[k];
-    if(data[o]){data[k]=(data[k]||"")+" — "+data[o].trim();}
-    delete data[o];
-  });
+  var data=collect(),now=new Date(),p2=function(n){return String(n).padStart(2,'0');};
+  var rid="PC-"+now.getFullYear()+p2(now.getMonth()+1)+p2(now.getDate())+"-"+p2(now.getHours())+p2(now.getMinutes())+p2(now.getSeconds())+"-"+Math.random().toString(36).slice(2,5).toUpperCase();
+  data["_lang"]=lang;data["_variant"]="PC";data["_timestamp"]=now.toISOString();data["_request_id"]=rid;
+  data["_products_client"]=productsText(lstCur());
   var encoded=Object.keys(data).map(function(k){return encodeURIComponent(k)+"="+encodeURIComponent(data[k]);}).join("&");
   fetch(APPS_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:encoded})
   .then(function(){
     setTimeout(function(){
       btn.disabled=false;btn.textContent=ui.send_btn;
-      alertEl.className="alert success";alertEl.textContent=ui.success;alertEl.style.display="block";
       document.getElementById("qform").reset();
-      document.querySelectorAll('[required]').forEach(function(el){el.classList.add('required-field');el.classList.remove('field-error');});
-      updateSections();Object.keys(OTHER_FIELDS).forEach(updateOther);document.querySelectorAll('.imgguide figure').forEach(function(f){f.classList.remove('sel');});
-      setTodayDate();alertEl.scrollIntoView({behavior:"smooth",block:"center"});
+      resetNeeds();render();
+      alertEl.className="alert success";alertEl.textContent=ui.success+" "+ui.ref_label+" "+rid;alertEl.style.display="block";
+      alertEl.scrollIntoView({behavior:"smooth",block:"center"});
     },2000);
   }).catch(function(err){
     console.error(err);btn.disabled=false;btn.textContent=ui.send_btn;
